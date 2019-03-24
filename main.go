@@ -26,6 +26,7 @@ func main() {
 
 			if strings.HasSuffix(path, *ext) {
 				data, _ := ioutil.ReadFile(path)
+				os.Remove(path)
 				var re = regexp.MustCompile(`(?m)(^\s+)`)
 				replaced := re.ReplaceAllString(string(data), ``)
 
